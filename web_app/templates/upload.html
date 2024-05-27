@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <!-- Vincular el archivo CSS externo -->
+    <link rel="stylesheet" href="../static/estilos.css">
+</head>
+<body>
+    <h1>Cargar nuevo PDF a la fuente de información</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+<!--         <label for="file">Choose PDF:</label>
+        <input type="file" id="fileID" name="file" accept="application/pdf" required>
+        <button type="submit">Upload</button> -->
+
+        <div class="container">
+            <h3>Elegir un Archivo</h3>
+            <input type="file" id="fileInput" accept=".pdf" />
+            <button type="submit" id="submitButton">Upload</button>
+            <p></p>
+            <div class="only-text-area" id="fileInfo">
+                <div id="contentUpld">
+                    <h3>Información del Archivo:</h3>
+                    <p id="fileDetails">Ningún archivo.</p>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+    <div id="upload-status"></div>
+    <p></p>
+    <div>
+        <a href="/">Regresar a página principal</a>
+    </div>
+    
+</body>
+</html>

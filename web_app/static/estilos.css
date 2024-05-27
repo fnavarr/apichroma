@@ -1,0 +1,89 @@
+/* Estilo global para fuentes y colores */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+/* Contenedor principal centrado */
+.container {
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el área de la pregunta */
+#question {
+    width: 75%;
+}
+
+.only-text-area {
+    width: 400px;
+    height: 150px;
+    border: 2px solid #ddd;
+    padding: 2px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Estilos para el área de texto desplazable */
+.scrollable-text-area {
+    width: 80%;
+    height: 450px;
+    border: 2px solid #ddd;
+    padding: 20px;
+    overflow-y: auto; /* Hace que el contenido sea desplazable verticalmente */
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+}
+
+/* Estilo para el contenido dentro del área desplazable */
+#content {
+    line-height: 1.6;
+}
+
+/* Estilo para el contenido dentro del área de upload files */
+#contentUpld {
+    line-height: 1.6;
+    font-size: 12px;
+}
+
+#content h3 {
+    font-size: 16px;
+    color: #0073e6;
+    margin-bottom: 10px;
+}
+
+#content p {
+    font-size: 16px;
+    color: #555;
+    white-space: pre-wrap; /* Preserva los saltos de línea */
+    margin-bottom: 10px;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+#content p.sources {
+    font-style: italic;
+    color: #999;
+}

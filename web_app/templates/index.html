@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Vincular el archivo CSS externo -->
+    <link rel="stylesheet" href="../static/estilos.css">
+
+    <title>Document Retrieval</title>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <h1>Desarrollo de Nueva Tecnologia Basada en IA  </h1>
+    <h2>Modelo Base para Extracción de Conocimiento usando LLM/RAG  </h2>
+    <form id="question-form" class="question-line">
+        <label for="question">Escribe tu pregunta:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Ask</button>
+        <h5>Para mejores resultados procura incluir el contexto y la información que creas 
+            pertinente a tu pregunta. Esto podría ayudarte a obtener mejores respuestas.</h5>
+        <p></p>
+    </form>
+
+    <div class="scrollable-text-area">
+        <div id="results"></div>
+    </div>
+
+    <p></p>
+
+    <h3>Fuentes de información actualmente cargadas</h3>
+    <ul id="file-list"></ul>
+    <!-- <p></p>
+    <a href="./upload">Cargar una nueva fuente</a> -->
+</body>
+</html>
