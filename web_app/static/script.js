@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const uploadForm = document.getElementById('upload-form');
-    console.log("uploadform: " + uploadForm)
+    // console.log("uploadform: " + uploadForm)
 
     // NOTA.
     // El siguiete codigo no sera ejecutado en el cliente.
-    // La función de carga se implemantará en el sservidor como 
+    // La función de carga se implemantará en el servidor como 
     // una fincion del administrador. Se deja aqui unicamente como 
     // referencia inicial.
     
@@ -60,14 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const form = document.getElementById('question-form');
-    console.log("form: " + form)
+    // console.log("form: " + form)
     if (form) {
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
             
             const question = document.getElementById('question').value;
 
-            const response = await fetch('http://localhost:8000/query', {
+            const response = await fetch('http://34.212.146.55:8000/query', {
                 method: 'POST', 
                 headers: {
                     "Content-type": "application/json; charset=UTF-8" 
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const fetchFileList = async () => {
-            const response = await fetch('http://localhost:8000/list_files', {method: 'GET'});
+            const response = await fetch('http://34.212.146.55:8000/list_files', {method: 'GET'});
             const data = await response.json();
             displayFileList(data);
         };
