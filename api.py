@@ -11,7 +11,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_openai import OpenAI
-from flask_cors import CORS
+#from flask_cors import CORS
 from typing import List
 import shutil
 
@@ -21,9 +21,6 @@ key = os.getenv("OPEN_API_KEY")
 
 # FastAPI app instance
 app = FastAPI()
-
-#CORS set to any route
-CORS(app)
 
 # Working variables
 persist_directory = 'db'
@@ -48,14 +45,14 @@ class Query(BaseModel):
     question: str
 
 
-# Setup CORS
-#app.add_middleware(
-# CORSMiddleware,
-# allow_origins=["http://localhost:5001"], # Add your frontend origin here
-# allow_credentials=True,
-# allow_methods=["*"],
-# allow_headers=["*"],
-# )
+# Setup CORS for fasapi
+app.add_middleware(
+ CORSMiddleware,
+ allow_origins=["*"], # Add your frontend origin here
+ allow_credentials=True,
+ allow_methods=["*"],
+ allow_headers=["*"],
+ )
 
 def process_llm_response(llm_response):
     result = llm_response['result']
