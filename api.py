@@ -45,13 +45,13 @@ class Query(BaseModel):
 
 
 # Setup CORS
-app.add_middleware(
- CORSMiddleware,
- allow_origins=["http://localhost:5001"], # Add your frontend origin here
- allow_credentials=True,
- allow_methods=["*"],
- allow_headers=["*"],
- )
+#app.add_middleware(
+# CORSMiddleware,
+# allow_origins=["http://localhost:5001"], # Add your frontend origin here
+# allow_credentials=True,
+# allow_methods=["*"],
+# allow_headers=["*"],
+# )
 
 def process_llm_response(llm_response):
     result = llm_response['result']
@@ -59,6 +59,7 @@ def process_llm_response(llm_response):
     return result + sources
 
 @app.post("/query/")
+@cross_origin()
 async def query_api(query: Query):
     try:
         llm_response = qa_chain(query.question)
@@ -70,6 +71,7 @@ async def query_api(query: Query):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/upload_pdfs/")
+@cross_origin()
 async def upload_pdfs(files: List[UploadFile] = File(...)):
     # print("==> Files tiene: " + File(...))
     try:
@@ -105,6 +107,7 @@ async def upload_pdfs(files: List[UploadFile] = File(...)):
         raise HTTPException(status_code=500, detail=str(e))
     
 @app.get("/list_files")
+@cross_origin()
 def list_files():
     try:
         files = [f for f in os.listdir(pdf_directory)]
