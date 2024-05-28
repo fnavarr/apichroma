@@ -22,6 +22,9 @@ key = os.getenv("OPEN_API_KEY")
 # FastAPI app instance
 app = FastAPI()
 
+#CORS set to any route
+CORS(app)
+
 # Working variables
 persist_directory = 'db'
 pdf_directory = "pdf"
@@ -60,7 +63,6 @@ def process_llm_response(llm_response):
     return result + sources
 
 @app.post("/query/")
-@cross_origin()
 async def query_api(query: Query):
     try:
         llm_response = qa_chain(query.question)
@@ -72,7 +74,6 @@ async def query_api(query: Query):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/upload_pdfs/")
-@cross_origin()
 async def upload_pdfs(files: List[UploadFile] = File(...)):
     # print("==> Files tiene: " + File(...))
     try:
@@ -108,7 +109,6 @@ async def upload_pdfs(files: List[UploadFile] = File(...)):
         raise HTTPException(status_code=500, detail=str(e))
     
 @app.get("/list_files")
-@cross_origin()
 def list_files():
     try:
         files = [f for f in os.listdir(pdf_directory)]
