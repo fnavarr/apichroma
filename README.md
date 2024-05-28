@@ -11,6 +11,8 @@ It uses anaconda to define the python virtual environment.
 
 Python 3.14
 
+flask
+
 Langchain
 
 FastAPI
